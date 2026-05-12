@@ -4,10 +4,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 
 Route::get("/user", function (Request $request) {
     return $request->user();
 })->middleware("auth:sanctum");
+
+// get User
+Route::get('/user/{id}', [ProfileController::class, 'getUser']);
 
 Route::post("/login", [AuthController::class, "login"]);
 Route::post("/register", [AuthController::class, "register"]);
