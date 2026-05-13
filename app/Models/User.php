@@ -51,4 +51,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Like::class, "user_id");
     }
+
+    // favorit
+    public function favorits()
+    {
+        return $this->hasMany(Favorit::class, "user_id");
+    }
 }

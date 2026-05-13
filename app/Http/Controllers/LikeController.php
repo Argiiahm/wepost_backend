@@ -34,14 +34,20 @@ class LikeController extends Controller
         if ($like) {
             // If the like exists, remove it (unlike)
             $like->delete();
-            return response()->json(['message' => 'Post unliked']);
+            return response()->json([
+                'message' => 'Post unliked',
+                'isLiked' => false
+            ]);
         } else {
             // If the like does not exist, create it (like)
             Like::create([
                 'user_id' => $user->id,
                 'post_id' => $id,
             ]);
-            return response()->json(['message' => 'Post liked']);
+            return response()->json([
+                'message' => 'Post liked',
+                'isLiked' => true
+            ]);
         }
     }
 }

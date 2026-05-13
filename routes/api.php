@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FavoritController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -31,4 +32,8 @@ Route::middleware("auth:sanctum")->group(function () {
     // likes
     Route::get("/like-activity", [LikeController::class, "likeActivity"]);
     Route::post("/post/{id}/like", [LikeController::class, "like"]);
+
+    // Favorit
+    Route::get("/favorits-activity", [FavoritController::class, 'ActivityFavorit']);
+    Route::post("/post/{id}/favorit", [FavoritController::class, 'Favorit']);
 });

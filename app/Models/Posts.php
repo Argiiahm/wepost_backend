@@ -26,4 +26,10 @@ class Posts extends Model
     {
         return $this->hasMany(Like::class, "post_id");
     }
+
+    // Favorits
+    public function Favorits()
+    {
+        return $this->hasMany(Favorit::class, "post_id");
+    }
 }
