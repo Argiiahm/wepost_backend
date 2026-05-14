@@ -13,7 +13,7 @@ Route::get("/", function () {
     return "Hello from wepost!";
 })->middleware(['throttle:post-limit']);
 
-Route::middleware(['throttle:auth-limit'])->group(function () {
+Route::middleware(['throttle:post-limit'])->group(function () {
     Route::post("/login", [AuthController::class, "login"]);
     Route::post("/register", [AuthController::class, "register"]);
 });
